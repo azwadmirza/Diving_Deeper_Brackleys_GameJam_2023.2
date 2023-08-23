@@ -1,6 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
+//using Unity.Mathematics;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -36,12 +37,13 @@ public class Player : MonoBehaviour
         if (horizontal > 0)
         {
             targetRotation = Quaternion.Euler(0, 0, rotationAngle);
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
         if (horizontal < 0)
         {
             targetRotation = Quaternion.Euler(0, 0, -rotationAngle);
-            transform.localScale = new Vector3(-1, 1, 1);
+            float temp = transform.localScale.x;
+            transform.localScale = new Vector3(-Math.Abs(temp), transform.localScale.y, transform.localScale.z);
         }
         if (horizontal == 0f)
         {
