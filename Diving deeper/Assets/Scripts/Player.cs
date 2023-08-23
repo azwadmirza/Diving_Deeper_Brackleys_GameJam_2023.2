@@ -34,11 +34,19 @@ public class Player : MonoBehaviour
 
         //checking movement direction
         if (horizontal > 0)
+        {
             targetRotation = Quaternion.Euler(0, 0, rotationAngle);
+            transform.localScale = new Vector3(1, 1, 1);
+        }
         if (horizontal < 0)
+        {
             targetRotation = Quaternion.Euler(0, 0, -rotationAngle);
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
         if (horizontal == 0f)
+        {
             targetRotation = initialRotation;
+        }
 
         //checking bounds and keeping the player inside bound
         if(transform.position.x >= xBound)
