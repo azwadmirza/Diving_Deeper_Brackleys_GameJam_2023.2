@@ -38,16 +38,16 @@ public class Player : MonoBehaviour
         movement = new Vector2(horizontal, vertical);
 
         //checking movement direction
+        float localScaleX = Mathf.Abs(transform.localScale.x);
         if (horizontal > 0)
         {
             targetRotation = Quaternion.Euler(0, 0, rotationAngle);
-            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
         }
         if (horizontal < 0)
         {
             targetRotation = Quaternion.Euler(0, 0, -rotationAngle);
-            float temp = transform.localScale.x;
-            transform.localScale = new Vector3(-Math.Abs(temp), transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(-localScaleX, transform.localScale.y, transform.localScale.z);
         }
         if (horizontal == 0f)
         {
