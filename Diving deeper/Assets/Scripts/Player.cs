@@ -8,11 +8,17 @@ public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
     private float xBound1=11.9f;
-    private float xBound2 = -7.9f;
+    private float xBound2 = -11.9f;
     public float yBound1=3.9f;
     public float yBound2=-35;
     public float speed = 5.0f;
     public float rotationSpeed = 5.0f;
+    private Transform player;
+    private Animator animator;
+    public CameraShake cameraShake;
+    public float shakeDuration;
+    public float shakeMagnitude;
+    private bool isHurt;
     private Quaternion initialRotation;
     private Vector2 movement;
     private float rotationAngle = 45f;
@@ -25,6 +31,10 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         initialRotation = transform.rotation;
+
+        player = transform.Find("player");
+        animator = player.GetComponent<Animator>();
+        isHurt = false;
     }
 
     // Update is called once per frame
@@ -63,6 +73,9 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(transform.position.x, yBound1, 0);
         if (transform.position.y <= yBound2)
             transform.position = new Vector3(transform.position.x, yBound2, 0);
+
+        //checking getting hurt
+        GetHurt();
     }
 
     private void FixedUpdate()
@@ -77,5 +90,23 @@ public class Player : MonoBehaviour
         Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);
         rb.MoveRotation(rotation);
 
+    }
+
+    public void GetHurt()
+    {
+        if(isHurt)
+        {
+            animator.SetBool("isHurt", true);
+            StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
+        }
+        else
+        {
+            animator.SetBool("isHurt", false);
+        }
+    }
+
+    public void setIsHurt(bool val)
+    {
+        isHurt = val;
     }
 }

@@ -78,6 +78,9 @@ MonoBehaviour:
   yBound2: -35
   speed: 8
   rotationSpeed: 5
+  cameraShake: {fileID: 0}
+  shakeDuration: 0.5
+  shakeMagnitude: 2.5
   groundCheck: {fileID: 0}
   groundLayer:
     serializedVersion: 2
@@ -129,7 +132,7 @@ GameObject:
   - component: {fileID: 5599202375116051764}
   - component: {fileID: 4432809701067905785}
   m_Layer: 0
-  m_Name: player-swiming_0
+  m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
