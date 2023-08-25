@@ -39,4 +39,9 @@ public class BackgroundSlider : MonoBehaviour
         instantiatedBG = Instantiate(backgroundPrefab, pos, Quaternion.identity);
         instantiatedBGTransform = instantiatedBG.transform;
     }
+
+    public GameObject getBackground()
+    {
+        return instantiatedBG;
+    }
 }
