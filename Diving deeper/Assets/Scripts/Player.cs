@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
     private Quaternion initialRotation;
     private Vector2 movement;
     private float rotationAngle = 45f;
+    public TextMeshProUGUI coinsText;
     private Quaternion targetRotation = Quaternion.identity;
     private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -47,7 +49,7 @@ public class Player : MonoBehaviour
 
         //movement direction vector
         movement = new Vector2(horizontal, vertical);
-        Debug.Log(numberOfCoins);
+        coinsText.text = numberOfCoins.ToString();
         //checking movement direction
         float localScaleX = Mathf.Abs(transform.localScale.x);
         if (horizontal > 0)
