@@ -41,7 +41,7 @@ public class CoinSpawner : MonoBehaviour
         Vector3 cameraBottomLeft = camera.ViewportToWorldPoint(new Vector3(0.5f, 0, camera.nearClipPlane));
 
         float x = Random.Range(-xBound, xBound);
-        float y = Random.Range(cameraTopLeft.y + yBound, cameraBottomLeft.y - yBound2);
+        float y = Random.Range(cameraTopLeft.y + yBound - 80, cameraBottomLeft.y - yBound2);
 
         Vector3 spawnPosition = new Vector3(x, y, 0);
 
