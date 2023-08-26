@@ -13,5 +13,9 @@ public class Coins : MonoBehaviour
             player.incrementCoins();
             Destroy(gameObject);
         }
+        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Coins"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
