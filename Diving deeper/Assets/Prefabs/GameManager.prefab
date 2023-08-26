@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9111752175954871065}
   - component: {fileID: 7723230507596620258}
   - component: {fileID: -6475728123332029367}
+  - component: {fileID: 2720696818658387578}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7723230507596620258
 MonoBehaviour:
@@ -69,3 +70,22 @@ MonoBehaviour:
   - {fileID: 8552098361877173261, guid: 9a3fe016b5c377a47848adc02670e641, type: 3}
   - {fileID: 7855136590513132026, guid: b0a5964556bd8fb4597d0408d681ea31, type: 3}
   - {fileID: 896283057295100492, guid: 3e473d5cef3dead40bbc149fd4cbb019, type: 3}
+--- !u!114 &2720696818658387578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089061289533696464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7dc1ab581cc7e4ebc2ef33b33edb98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToSpawn:
+  - {fileID: 504963900704901088, guid: d6fb531481a28794499f95d985020f7c, type: 3}
+  avoidObjectsLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  spawnInterval: 1
+  spawnRadius: 3
