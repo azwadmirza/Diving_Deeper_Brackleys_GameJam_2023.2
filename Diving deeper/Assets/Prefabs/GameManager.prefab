@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2720696818658387578}
   - component: {fileID: 7907823007898133711}
   - component: {fileID: 1984062895195157177}
+  - component: {fileID: 1282941566734224491}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -54,6 +55,7 @@ MonoBehaviour:
   - {fileID: 1562905386813902633, guid: 2b881758b31099547ae715776892a18b, type: 3}
   - {fileID: 3784194854429259864, guid: 2e653ed8f0fbe2d44abbccc5b7140ba9, type: 3}
   - {fileID: 3784194854429259864, guid: 2e653ed8f0fbe2d44abbccc5b7140ba9, type: 3}
+  instantiatedBG: {fileID: 0}
 --- !u!114 &-6475728123332029367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,12 +113,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c179d589a78854cbf3ccc28f8d1752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: 0
   lives:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   player: {fileID: 0}
-  canBeHurt: 0
   hurtCoolDown: 2
 --- !u!114 &1984062895195157177
 MonoBehaviour:
@@ -131,3 +135,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aspectRatio: {x: 3, y: 4}
+--- !u!114 &1282941566734224491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089061289533696464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f89398bd35335f143aedcb022fe145e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xBound: 11
+  yBound1: -22
+  yBound2: -38
+  spawnCooldownlow: 0.5
+  spawnCooldownhigh: 2
+  bubblePrefab: {fileID: 0}
