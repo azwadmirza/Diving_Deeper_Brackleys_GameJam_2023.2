@@ -45,9 +45,19 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Player")
+        Player player = collision.gameObject.GetComponent<Player>();
+        if(player)
         {
-            Debug.Log(collision.gameObject.name);
+            player.setIsHurt(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Player player = collision.gameObject.GetComponent<Player>();
+        if (player)
+        {
+            player.setIsHurt(false);
         }
     }
 }
