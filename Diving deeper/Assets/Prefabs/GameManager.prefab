@@ -85,10 +85,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7dc1ab581cc7e4ebc2ef33b33edb98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsToSpawn:
-  - {fileID: 504963900704901088, guid: d6fb531481a28794499f95d985020f7c, type: 3}
+  xBound: 11.9
+  yBound: 5
+  yBound2: 5
+  spawnCooldownlow: 2
+  spawnCooldownhigh: 2
+  coinPrefab: {fileID: 504963900704901088, guid: d6fb531481a28794499f95d985020f7c, type: 3}
   avoidObjectsLayer:
     serializedVersion: 2
     m_Bits: 64
-  spawnInterval: 1
-  spawnRadius: 3
+  camera: {fileID: 0}
+  playerTransform: {fileID: 1672616015294003010, guid: f9d0f79aa0f368c46a30a7a90022b0a0, type: 3}

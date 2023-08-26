@@ -1,40 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CoinSpawner : MonoBehaviour
 {
-    public GameObject[] objectsToSpawn;  
-    public LayerMask avoidObjectsLayer;  
-    public float spawnInterval = 2f;     
-    public float spawnRadius = 5f;       
+    public float xBound;
+    public float yBound;
+    public float yBound2;
+    public float spawnCooldownlow;
+    public float spawnCooldownhigh;
+    private float activeCooldown;
+    private float lastSpawned;
+    public GameObject coinPrefab;
+    public LayerMask avoidObjectsLayer;
     private BackgroundSlider backgroundSlider;
+    public Camera camera;  // Reference to the camera object
+    public Transform playerTransform;  // Reference to the player's transform
 
-    private void Start()
+    void Start()
     {
         backgroundSlider = GetComponent<BackgroundSlider>();
-        InvokeRepeating("SpawnObject", 0f, spawnInterval);
+        activeCooldown = Random.Range(spawnCooldownlow, spawnCooldownhigh);
+        lastSpawned = Time.time;
     }
 
-    private void SpawnObject()
+    void Update()
     {
-        Vector3 spawnPosition = GetRandomSpawnPosition();
-
-        if (!Physics.CheckSphere(spawnPosition, 1f, avoidObjectsLayer))
+        if (Time.time - lastSpawned >= activeCooldown)
         {
-            GameObject objectToSpawn = objectsToSpawn[Random.Range(0, objectsToSpawn.Length)];
-
-            // Instantiate the chosen object as a child of the spawner
-            GameObject spawnedObject = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
-            spawnedObject.transform.SetParent(backgroundSlider.getBackground().transform);
+            SpawnCoin();
+            lastSpawned = Time.time;
+            activeCooldown = Random.Range(spawnCooldownlow, spawnCooldownhigh);
         }
     }
 
-    private Vector3 GetRandomSpawnPosition()
+    private void SpawnCoin()
     {
-        Vector2 randomCirclePoint = Random.insideUnitCircle * spawnRadius;
-        Vector3 spawnPosition = transform.position + new Vector3(randomCirclePoint.x, 0f, randomCirclePoint.y);
+        Vector3 cameraTopLeft = camera.ViewportToWorldPoint(new Vector3(0.5f, 1, camera.nearClipPlane));
+        Vector3 cameraBottomLeft = camera.ViewportToWorldPoint(new Vector3(0.5f, 0, camera.nearClipPlane));
 
-        return spawnPosition;
+        float x = Random.Range(-xBound, xBound);
+        float y = Random.Range(cameraTopLeft.y + yBound, cameraBottomLeft.y - yBound2);
+
+        Vector3 spawnPosition = new Vector3(x, y, 0);
+
+        if (!Physics.CheckSphere(spawnPosition, 1f, avoidObjectsLayer))
+        {
+            GameObject coin = Instantiate(coinPrefab, spawnPosition, Quaternion.identity);
+            coin.transform.SetParent(backgroundSlider.getBackground().transform);
+        }
     }
 }
