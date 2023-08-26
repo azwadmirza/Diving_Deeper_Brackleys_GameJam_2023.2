@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class GameOver : MonoBehaviour
     private BackgroundMove backgroundMove;
     private BackgroundMove backgroundMove1;
     private GameObject gameManager;
+    [SerializeField]private GameObject gameOver;
     void Start()
     {
         lifeManager = FindObjectOfType<LifeManager>().GetComponent<LifeManager>();
@@ -23,7 +25,7 @@ public class GameOver : MonoBehaviour
     {
         if(lifeManager.count == 5)
         {
-            Debug.Log("Game Over!!!");
+            gameOver.SetActive(true);
             slider = gameManager.GetComponent<BackgroundSlider>();
             backgroundMove = slider.background.GetComponent<BackgroundMove>();
             backgroundMove1 = slider.getBackground().GetComponent<BackgroundMove>();
