@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using TMPro;
+using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -27,11 +29,16 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI coinsText;
     private Quaternion targetRotation = Quaternion.identity;
     private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField]private GameObject gameOver;
+    [SerializeField] private GameObject settings;
+    [SerializeField] private GameObject help;
+
 
     void Awake()
     {
+        gameOver.SetActive(false);
+        settings.SetActive(false);
+        help.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         initialRotation = transform.rotation;
 
@@ -46,7 +53,10 @@ public class Player : MonoBehaviour
         //get input
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
+        if (PauseGame.isPaused)
+        {
+            return;
+        }
         //movement direction vector
         movement = new Vector2(horizontal, vertical);
         coinsText.text = numberOfCoins.ToString();
@@ -79,6 +89,11 @@ public class Player : MonoBehaviour
 
         //checking getting hurt
         GetHurt();
+    }
+
+    public void LeaveGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     private void FixedUpdate()

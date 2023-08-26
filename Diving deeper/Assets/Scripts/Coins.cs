@@ -8,7 +8,6 @@ public class Coins : MonoBehaviour
     {
         if (collision.transform.tag=="Player")
         {
-            Debug.Log("Collision Occurs");
             Player player = collision.gameObject.GetComponent<Player>();
             player.incrementCoins();
             Destroy(gameObject);
