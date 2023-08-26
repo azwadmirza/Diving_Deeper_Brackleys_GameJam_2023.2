@@ -275,7 +275,7 @@ Transform:
   - {fileID: 1329811253055699420}
   - {fileID: 6392964232059320533}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6144061010908353901
 BoxCollider2D:
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb450e85847d6e949ab40d7ab83e2406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 5
 --- !u!95 &4221225310524082022
 Animator:
   serializedVersion: 5
