@@ -5,7 +5,7 @@ using UnityEngine;
 public class BackgroundSlider : MonoBehaviour
 {
     public GameObject background;
-    public GameObject backgroundPrefab;
+    public GameObject[] backgroundPrefab;
     private Transform backgroundTransform;
     private Transform instantiatedBGTransform;
     private Vector3 startingPos;
@@ -36,7 +36,7 @@ public class BackgroundSlider : MonoBehaviour
         bc = background.GetComponent<BoxCollider2D>();
         float y = bc.size.y;
         Vector3 pos = new Vector3(backgroundTransform.position.x, backgroundTransform.position.y - y, backgroundTransform.position.z);
-        instantiatedBG = Instantiate(backgroundPrefab, pos, Quaternion.identity);
+        instantiatedBG = Instantiate(backgroundPrefab[Random.Range(0, backgroundPrefab.Length)], pos, Quaternion.identity);
         instantiatedBGTransform = instantiatedBG.transform;
     }
 

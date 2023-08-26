@@ -172,4 +172,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 60
-  xBound: 11
+  xBound1: 11
+  xBound2: -14
