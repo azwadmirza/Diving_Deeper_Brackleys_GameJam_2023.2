@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7723230507596620258}
   - component: {fileID: -6475728123332029367}
   - component: {fileID: 2720696818658387578}
+  - component: {fileID: 7907823007898133711}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MonoBehaviour:
   backgroundPrefab:
   - {fileID: 175555537093331443, guid: d8e240903777d4d4bb8890216019f479, type: 3}
   - {fileID: 1562905386813902633, guid: 2b881758b31099547ae715776892a18b, type: 3}
+  - {fileID: 3784194854429259864, guid: 2e653ed8f0fbe2d44abbccc5b7140ba9, type: 3}
   - {fileID: 3784194854429259864, guid: 2e653ed8f0fbe2d44abbccc5b7140ba9, type: 3}
 --- !u!114 &-6475728123332029367
 MonoBehaviour:
@@ -96,3 +98,22 @@ MonoBehaviour:
     m_Bits: 64
   camera: {fileID: 0}
   playerTransform: {fileID: 1672616015294003010, guid: f9d0f79aa0f368c46a30a7a90022b0a0, type: 3}
+--- !u!114 &7907823007898133711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089061289533696464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c179d589a78854cbf3ccc28f8d1752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  player: {fileID: 0}
+  canBeHurt: 0
+  hurtCoolDown: 2
