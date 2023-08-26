@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3345688708017095366}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,12 +75,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yBound1: 3.9
-  yBound2: -35
+  yBound2: -19
   speed: 8
   rotationSpeed: 5
   cameraShake: {fileID: 0}
   shakeDuration: 0.5
-  shakeMagnitude: 2.5
+  shakeMagnitude: 1
+  numberOfCoins: 0
+  coinsText: {fileID: 0}
   groundCheck: {fileID: 0}
   groundLayer:
     serializedVersion: 2
@@ -119,7 +121,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.21
 --- !u!1 &5324240816659251436
 GameObject:
   m_ObjectHideFlags: 0

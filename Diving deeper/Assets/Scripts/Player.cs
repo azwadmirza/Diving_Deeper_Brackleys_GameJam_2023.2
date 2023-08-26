@@ -8,8 +8,8 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float xBound1 = 11.9f;
-    private float xBound2 = -11.9f;
+    private float xBound1 = 2.5f;
+    private float xBound2 = -13f;
     public float yBound1 = 3.9f;
     public float yBound2 = -35;
     public float speed = 5.0f;

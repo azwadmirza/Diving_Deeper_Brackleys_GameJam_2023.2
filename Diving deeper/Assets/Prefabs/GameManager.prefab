@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -6475728123332029367}
   - component: {fileID: 2720696818658387578}
   - component: {fileID: 7907823007898133711}
+  - component: {fileID: 1984062895195157177}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -66,8 +67,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xBound: 11
-  yBound1: -8
-  yBound2: -28
+  yBound1: -22
+  yBound2: -38
   spawnCooldownlow: 0.5
   spawnCooldownhigh: 2
   enemyPrefab:
@@ -117,3 +118,16 @@ MonoBehaviour:
   player: {fileID: 0}
   canBeHurt: 0
   hurtCoolDown: 2
+--- !u!114 &1984062895195157177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089061289533696464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05ad609c50d634448a17e16a0cd4c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aspectRatio: {x: 3, y: 4}

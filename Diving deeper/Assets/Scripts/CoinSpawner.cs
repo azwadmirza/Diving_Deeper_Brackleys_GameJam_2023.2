@@ -51,4 +51,12 @@ public class CoinSpawner : MonoBehaviour
             coin.transform.SetParent(backgroundSlider.getBackground().transform);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Coins"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

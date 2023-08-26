@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class LifeManager : MonoBehaviour
 {
+    public int count;
     public GameObject[] lives;
     public Player player;
-    public bool canBeHurt;
+    private bool canBeHurt;
     private float lastHurt;
     public float hurtCoolDown;
     // Start is called before the first frame update
@@ -14,6 +15,7 @@ public class LifeManager : MonoBehaviour
     {
         lastHurt = Time.time;
         canBeHurt = true;
+        count = 0;
     }
 
     // Update is called once per frame
@@ -33,6 +35,7 @@ public class LifeManager : MonoBehaviour
                 {
                     spriteRenderer.color = Color.black;
                     canBeHurt=false;
+                    count++;
                     break;
                 }
             }
