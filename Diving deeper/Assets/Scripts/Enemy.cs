@@ -5,7 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed;
-    public float xBound;
+    public float xBound1;
+    public float xBound2;
     private float xScale;
     private Rigidbody2D rb;
     private Vector3 moveDirection;
@@ -31,11 +32,11 @@ public class Enemy : MonoBehaviour
     void EnemyMove()
     {
         float temp = Mathf.Abs(transform.localScale.x);
-        if (transform.position.x >= xBound)
+        if (transform.position.x >= xBound1)
         {
             transform.localScale = new Vector3(-temp, transform.localScale.y, 0);
         }
-        if (transform.position.x <= -xBound)
+        if (transform.position.x <= xBound2)
         {
             transform.localScale = new Vector3(temp, transform.localScale.y, 0);
         }
