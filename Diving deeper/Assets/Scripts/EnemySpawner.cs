@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public float xBound;
+    public float xBound1;
+    public float xBound2;
     public float yBound1;
     public float yBound2;
     public float spawnCooldownlow;
@@ -34,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        float x = Random.Range(xBound, -xBound);
+        float x = Random.Range(xBound1, xBound2);
         float y = Random.Range(yBound1, yBound2);
 
         Vector3 spawnPos = new Vector3(x, y, 0);

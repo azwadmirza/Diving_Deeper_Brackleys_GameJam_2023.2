@@ -68,7 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83fe172ba20b7054b8c77e03c7590769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xBound: 11
+  xBound1: -13
+  xBound2: 3.5
   yBound1: -22
   yBound2: -38
   spawnCooldownlow: 0.5
@@ -147,9 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89398bd35335f143aedcb022fe145e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xBound: 11
+  xBound1: -13
+  xBound2: 3.5
   yBound1: -22
   yBound2: -38
   spawnCooldownlow: 0.5
   spawnCooldownhigh: 2
-  bubblePrefab: {fileID: 0}
+  bubblePrefab: {fileID: 5196217088107363089, guid: d4d1d8cafaa3a374fbcf124079537045, type: 3}
