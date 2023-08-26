@@ -113,6 +113,11 @@ public class Player : MonoBehaviour
         isHurt = val;
     }
 
+    public bool getHurtVal()
+    {
+        return isHurt;
+    }
+
     public void incrementCoins()
     {
         this.numberOfCoins++;
