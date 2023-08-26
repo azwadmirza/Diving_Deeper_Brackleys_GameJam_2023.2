@@ -23,7 +23,7 @@ public class BackgroundSlider : MonoBehaviour
         //backgroundTransform = instantiatedBG.GetComponent<Transform>();
         if(instantiatedBGTransform.position.y >= startingPos.y)
         {
-            Destroy(background);
+            Destroy(background,5f);
             InitiateBackGround();
         }
     }
