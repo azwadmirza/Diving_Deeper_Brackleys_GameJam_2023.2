@@ -10,7 +10,7 @@ public class BackgroundSlider : MonoBehaviour
     private Transform instantiatedBGTransform;
     private Vector3 startingPos;
     private BoxCollider2D bc;
-    private GameObject instantiatedBG;
+    public GameObject instantiatedBG;
     // Start is called before the first frame update
     void Awake()
     {
