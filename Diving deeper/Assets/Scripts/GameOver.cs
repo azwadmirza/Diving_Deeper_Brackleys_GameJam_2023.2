@@ -15,6 +15,7 @@ public class GameOver : MonoBehaviour
     private BackgroundMove backgroundMove;
     private BackgroundMove backgroundMove1;
     private GameObject gameManager;
+    public static bool gameOverFlag;
     [SerializeField]private TextMeshProUGUI coinText;
     [SerializeField]private GameObject gameOver;
     void Start()
@@ -29,6 +30,7 @@ public class GameOver : MonoBehaviour
         coinText.text = Player.numberOfCoins.ToString();
         if(lifeManager.count == 5)
         {
+            gameOverFlag = true;
             gameOver.SetActive(true);
             slider = gameManager.GetComponent<BackgroundSlider>();
             backgroundMove = slider.background.GetComponent<BackgroundMove>();
@@ -44,11 +46,13 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex,LoadSceneMode.Single);
     }
 
     public void Exit()
     {
-        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex+1)%2);
+        AsyncLoading asyncLoading = (new GameObject()).AddComponent<AsyncLoading>();
+        asyncLoading.Setter("Scenes/main_menu", "Scenes/Tileset");
     }
+
 }

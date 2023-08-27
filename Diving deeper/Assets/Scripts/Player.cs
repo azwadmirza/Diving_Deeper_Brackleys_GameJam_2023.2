@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        GameOver.gameOverFlag = false;
         gameOver.SetActive(false);
         settings.SetActive(false);
         help.SetActive(false);
@@ -54,6 +55,10 @@ public class Player : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         if (PauseGame.isPaused)
+        {
+            return;
+        }
+        if(GameOver.gameOverFlag)
         {
             return;
         }
@@ -91,10 +96,6 @@ public class Player : MonoBehaviour
         GetHurt();
     }
 
-    public void LeaveGame()
-    {
-        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex +1)%2);
-    }
 
     private void FixedUpdate()
     {
@@ -135,6 +136,14 @@ public class Player : MonoBehaviour
 
     public void incrementCoins()
     {
+        if (PauseGame.isPaused)
+        {
+            return;
+        }
+        if (GameOver.gameOverFlag == true)
+        {
+            return;
+        }
         numberOfCoins++;
     }
 }
