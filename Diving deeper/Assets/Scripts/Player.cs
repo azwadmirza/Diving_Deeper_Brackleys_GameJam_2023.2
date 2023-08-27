@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     public float shakeDuration;
     public float shakeMagnitude;
     private bool isHurt;
-    [SerializeField]private int numberOfCoins=0;
+    public static int numberOfCoins=0;
     private Quaternion initialRotation;
     private Vector2 movement;
     private float rotationAngle = 45f;
@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
 
     public void LeaveGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex +1)%2);
     }
 
     private void FixedUpdate()
@@ -135,6 +135,6 @@ public class Player : MonoBehaviour
 
     public void incrementCoins()
     {
-        this.numberOfCoins++;
+        numberOfCoins++;
     }
 }
