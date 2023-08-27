@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class GameOver : MonoBehaviour
     private BackgroundMove backgroundMove;
     private BackgroundMove backgroundMove1;
     private GameObject gameManager;
+    [SerializeField]private TextMeshProUGUI coinText;
     [SerializeField]private GameObject gameOver;
     void Start()
     {
@@ -23,6 +26,7 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        coinText.text = Player.numberOfCoins.ToString();
         if(lifeManager.count == 5)
         {
             gameOver.SetActive(true);
@@ -36,5 +40,15 @@ public class GameOver : MonoBehaviour
             player.enabled = false;
             gameManager.SetActive(false);
         }
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Exit()
+    {
+        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex+1)%2);
     }
 }
