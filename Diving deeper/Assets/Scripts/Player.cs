@@ -6,6 +6,7 @@ using UnityEngine;
 using TMPro;
 using UnityEditor;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class Player : MonoBehaviour
 {
@@ -86,8 +87,7 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(xBound2, transform.position.y, 0);
         if (transform.position.y >= yBound1)
         {
-            transform.position = new Vector3(transform.position.x, yBound1, 0);
-            setIsHurt(true);
+            transform.position = new Vector3(transform.position.x, yBound1-10, 0);
         }
         if (transform.position.y <= yBound2)
             transform.position = new Vector3(transform.position.x, yBound2, 0);
