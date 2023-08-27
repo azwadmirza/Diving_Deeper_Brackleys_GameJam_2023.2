@@ -944,6 +944,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 189662197}
   playerRb: {fileID: 1425370645}
+  coinText: {fileID: 0}
+  gameOver: {fileID: 0}
 --- !u!1001 &1892783210
 PrefabInstance:
   m_ObjectHideFlags: 0
