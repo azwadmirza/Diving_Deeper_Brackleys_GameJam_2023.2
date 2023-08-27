@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
         GameOver.gameOverFlag = false;
         gameOver.SetActive(false);
         settings.SetActive(false);
+        coinsText.text = "0";
         help.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         initialRotation = transform.rotation;
