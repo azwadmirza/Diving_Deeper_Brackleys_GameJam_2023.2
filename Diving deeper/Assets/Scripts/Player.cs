@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI coinsText;
     private Quaternion targetRotation = Quaternion.identity;
     private Rigidbody2D rb;
+    public AudioSource coins;
+    public AudioSource hurt;
     [SerializeField]private GameObject gameOver;
     [SerializeField] private GameObject settings;
     [SerializeField] private GameObject help;
@@ -117,6 +119,7 @@ public class Player : MonoBehaviour
     {
         if(isHurt)
         {
+            hurt.Play();
             animator.SetBool("isHurt", true);
             StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
         }
@@ -138,6 +141,7 @@ public class Player : MonoBehaviour
 
     public void incrementCoins()
     {
+        coins.Play();
         numberOfCoins++;
     }
 }
