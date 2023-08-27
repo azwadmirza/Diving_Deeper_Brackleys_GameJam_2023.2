@@ -6,6 +6,7 @@ using UnityEngine;
 using TMPro;
 using UnityEditor;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class Player : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI coinsText;
     private Quaternion targetRotation = Quaternion.identity;
     private Rigidbody2D rb;
+    public AudioSource coins;
+    public AudioSource hurt;
     [SerializeField]private GameObject gameOver;
     [SerializeField] private GameObject settings;
     [SerializeField] private GameObject help;
@@ -88,7 +91,9 @@ public class Player : MonoBehaviour
         if (transform.position.x <= xBound2)
             transform.position = new Vector3(xBound2, transform.position.y, 0);
         if (transform.position.y >= yBound1)
-            transform.position = new Vector3(transform.position.x, yBound1, 0);
+        {
+            transform.position = new Vector3(transform.position.x, yBound1-10, 0);
+        }
         if (transform.position.y <= yBound2)
             transform.position = new Vector3(transform.position.x, yBound2, 0);
 
@@ -115,6 +120,7 @@ public class Player : MonoBehaviour
     {
         if(isHurt)
         {
+            hurt.Play();
             animator.SetBool("isHurt", true);
             StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
         }
@@ -136,14 +142,7 @@ public class Player : MonoBehaviour
 
     public void incrementCoins()
     {
-        if (PauseGame.isPaused)
-        {
-            return;
-        }
-        if (GameOver.gameOverFlag == true)
-        {
-            return;
-        }
+        coins.Play();
         numberOfCoins++;
     }
 }
