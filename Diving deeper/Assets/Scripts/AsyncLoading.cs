@@ -1,26 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class AsyncLoading : MonoBehaviour
 {
-
-
-    public void PlayGame()
+    // Start is called before the first frame update
+    private string loadScene;
+    private string unloadScene;
+    public void Setter(string loadScene, string unloadScene)
     {
-        StartCoroutine(WaitForLoadCompletion());
-    }
-
-    public void ExitGame()
-    {
-        Debug.Log("Quits Game");
-        Application.Quit();
+        this.loadScene = loadScene;
+        this.unloadScene = unloadScene;
+        StartCoroutine(this.WaitForLoadCompletion());
+        SceneManager.LoadSceneAsync(this.unloadScene, LoadSceneMode.Additive);
     }
 
     private IEnumerator WaitForLoadCompletion()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync("Tileset", LoadSceneMode.Single);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(this.loadScene);
         operation.allowSceneActivation = false;
 
         while (!operation.isDone)
@@ -38,4 +37,7 @@ public class MainMenu : MonoBehaviour
             yield return null;
         }
     }
+
+
+
 }
