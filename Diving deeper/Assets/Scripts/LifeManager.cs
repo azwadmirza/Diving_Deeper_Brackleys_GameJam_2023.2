@@ -28,16 +28,21 @@ public class LifeManager : MonoBehaviour
         }
         if (player.getHurtVal() && canBeHurt)
         {
-            for(int i = lives.Length - 1; i >= 0; i--)
+            LessenLife();
+        }
+    }
+
+    public void LessenLife()
+    {
+        for (int i = lives.Length - 1; i >= 0; i--)
+        {
+            SpriteRenderer spriteRenderer = lives[i].GetComponent<SpriteRenderer>();
+            if (spriteRenderer.sprite.name == "heart" && spriteRenderer.color != Color.black)
             {
-                SpriteRenderer spriteRenderer = lives[i].GetComponent<SpriteRenderer>();
-                if(spriteRenderer.sprite.name == "heart" && spriteRenderer.color != Color.black)
-                {
-                    spriteRenderer.color = Color.black;
-                    canBeHurt=false;
-                    count++;
-                    break;
-                }
+                spriteRenderer.color = Color.black;
+                canBeHurt = false;
+                count++;
+                break;
             }
         }
     }

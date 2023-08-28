@@ -11,6 +11,7 @@ using System.Threading;
 public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
+    public LifeManager lifeManager;
     private float xBound1 = 2.5f;
     private float xBound2 = -13f;
     public float yBound1 = 3.9f;
@@ -57,14 +58,14 @@ public class Player : MonoBehaviour
         //get input
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        if (PauseGame.isPaused)
+        /*if (PauseGame.isPaused)
         {
             return;
         }
         if(GameOver.gameOverFlag)
         {
             return;
-        }
+        }*/
         //movement direction vector
         movement = new Vector2(horizontal, vertical);
         coinsText.text = numberOfCoins.ToString();
@@ -92,6 +93,7 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(xBound2, transform.position.y, 0);
         if (transform.position.y >= yBound1)
         {
+            lifeManager.LessenLife();
             transform.position = new Vector3(transform.position.x, yBound1-10, 0);
         }
         if (transform.position.y <= yBound2)
@@ -144,5 +146,10 @@ public class Player : MonoBehaviour
     {
         coins.Play();
         numberOfCoins++;
+    }
+
+    public void setCoins(int coins)
+    {
+        numberOfCoins = coins;
     }
 }
