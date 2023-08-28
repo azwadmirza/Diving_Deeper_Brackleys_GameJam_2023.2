@@ -56,7 +56,9 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
+        Player.numberOfCoins = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex,LoadSceneMode.Single);
+
     }
 
     public void Exit()
