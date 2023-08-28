@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/main_menu.unity
     guid: c6887471260533d439e8015f2863c18f
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes/name input.unity
     guid: f494cf3fb67a8464794e92d9608a4948
   - enabled: 1
+=======
+>>>>>>> Stashed changes
     path: Assets/Scenes/Tileset.unity
     guid: 38b805229ad5b8d44bf75105b81d4e7f
   - enabled: 1
